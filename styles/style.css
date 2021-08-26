@@ -1,0 +1,201 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-weight: normal;
+}
+
+i {
+  pointer-events: none;
+}
+
+body header, body form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body form input,
+body form button, body section div.todo, body section div.todo button {
+  border: none;
+  border-radius: 2.5px;
+  margin: 0.15rem;
+  padding: 0.2rem 0.3rem;
+}
+
+body {
+  background: -webkit-gradient(linear, left top, right top, from(#5482ff), to(#64ff86));
+  background: linear-gradient(90deg, #5482ff, #64ff86);
+}
+
+body header {
+  height: 20vh;
+}
+
+body header h1 {
+  color: #fff;
+  font: 3rem sans-serif;
+  font-weight: bolder;
+}
+
+body form input,
+body form button {
+  font-size: 1.5rem;
+}
+
+body form input[type="number"] {
+  width: 2.5rem;
+  text-align: center;
+}
+
+body form button {
+  background: #009272;
+  color: #fff;
+  cursor: pointer;
+}
+
+body section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body section div.todo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 60vw;
+  background: #fff;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+body section div.todo p {
+  font-size: 1.5rem;
+  color: #000;
+}
+
+body section div.todo p.todo-text {
+  width: 50%;
+}
+
+body section div.todo p.todo-time {
+  width: 20%;
+  text-align: end;
+}
+
+body section div.todo button {
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+body section div.todo button.complete {
+  background: #32ff32;
+}
+
+body section div.todo button.trash {
+  background: red;
+  width: 33.59px;
+}
+
+.done {
+  opacity: 0.5;
+  text-decoration: line-through;
+  text-decoration-thickness: 0.2rem;
+}
+
+@-webkit-keyframes scaleUp {
+  0% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  30% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes scaleUp {
+  0% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  30% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@-webkit-keyframes scaleDown {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0.5;
+  }
+}
+
+@keyframes scaleDown {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0.5;
+  }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+/*# sourceMappingURL=style.css.map */
