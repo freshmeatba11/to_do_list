@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo List</title>
+    <meta name="author" content="freshmeatba11"></meta>
+    <title>To do List</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -12,25 +13,71 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/style.css" />
-  </head>
-  <body>
-    <header>
-      <h1>FreshMeatba11's Todo List</h1>
-    </header>
+    <script defer src="./app.js"></script>
+</head>
+<body>
+  <div class="back"></div>
+  <header>
+    <h1>To do List</h1>
+  </header>
 
-    <form action="">
-      <input type="text" />
-      <input type="number" min="1" max="12" placeholder="M" required />
-      <input type="number" min="1" max="31" placeholder="D" required />
-      <button type="submit">Add into List</button>
-    </form>
+  <form action="">
+    <input type="text" placeholder="Thing" />
+    <input type="number" min="1" max="12" placeholder="Month" required />
+    <input type="number" min="1" max="31" placeholder="Date" required />
+    <button type="submit">Apply</button>
+  </form>
 
-    <div class="sort">
-      <button>Sort by Time</button>
+  <div class="sort">
+    <button>Sort</button>
+  </div>
+
+  <section>
+    <!-- <div class="complete_svg_wrap">
+      <svg class="circle" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 0.75C4.44365 0.749999 0.750001 4.44365 0.75 9C0.75 13.5563 4.44365 17.25 9 17.25C13.5563 17.25 17.25 13.5563 17.25 9C17.25 4.44365 13.5564 0.75 9 0.75Z" stroke="#D7D7D7" stroke-width="1.5"/>
+      </svg>
+      <svg class="check"  viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 3.66667L5.5 8L13 1" stroke-width="1.5"/>
+      </svg>        
+    </div> -->
+    
+    <!-- <div class="todo">
+      <div class="complete_svg_wrap">
+        <svg class="circle" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 0.75C4.44365 0.749999 0.750001 4.44365 0.75 9C0.75 13.5563 4.44365 17.25 9 17.25C13.5563 17.25 17.25 13.5563 17.25 9C17.25 4.44365 13.5564 0.75 9 0.75Z" stroke="#D7D7D7" stroke-width="1.5"/>
+        </svg>
+        <svg class="check"  viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 3.66667L5.5 8L13 1" stroke-width="1.5"/>
+        </svg>         
+      </div>
     </div>
+    <div class="todo done">
+      <div class="complete_svg_wrap">
+        <svg class="circle" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 0.75C13.5563 0.749999 17.25 4.44365 17.25 9C17.25 13.5563 13.5563 17.25 9 17.25C4.44365 17.25 0.75 13.5563 0.75 9C0.749999 4.44365 4.44365 0.75 9 0.75Z" stroke="#D7D7D7" stroke-width="1.5"/>
+        </svg>
+        <svg class="check"  viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 3.66667L5.5 8L13 1" stroke-width="1.5"/>
+        </svg>         
+      </div>
+    </div>
+    <div class="todo undone">
+      <div class="complete_svg_wrap">
+        <svg class="circle" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 0.75C4.44365 0.749999 0.750001 4.44365 0.75 9C0.75 13.5563 4.44365 17.25 9 17.25C13.5563 17.25 17.25 13.5563 17.25 9C17.25 4.44365 13.5564 0.75 9 0.75Z" stroke="#D7D7D7" stroke-width="1.5"/>
+        </svg>
+        <svg class="check"  viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 3.66667L5.5 8L13 1" stroke-width="1.5"/>
+        </svg>         
+      </div>
+    </div> -->
 
-    <section></section>
-    <script src="./app.js"></script>
-  </body>
+  </section>
+    
+</body>
 </html>

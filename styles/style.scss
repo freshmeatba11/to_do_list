@@ -1,55 +1,151 @@
+@font-face {
+  font-family: Gidole;
+  src: url(../fonts/GidoleFont/Gidole-Regular.ttf) format("truetype");
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-weight: normal;
+  font-family: "Gidole", Arial, Helvetica, sans-serif;
 }
 
-i {
+::selection {
+  background-color: #d5973a;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+  background: transparent;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-button {
+  display: none;
+}
+::-webkit-scrollbar-thumb {
+  width: 5px;
+  background: linear-gradient(202deg, hsl(159, 41%, 60%), hsl(213, 61%, 60%));
+  border-radius: 10px;
+}
+
+i,
+svg,
+path {
   pointer-events: none;
-}
-
-%flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 %button {
   border: none;
-  border-radius: 2.5px;
-  margin: 0.15rem;
-  padding: 0.2rem 0.3rem;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+%input {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 9px;
+  color: #fff;
+  background-color: transparent;
 }
 
 body {
-  background: linear-gradient(90deg, rgb(84, 130, 255), rgb(100, 255, 134));
+  // background: linear-gradient(202deg, rgb(45, 108, 183), rgb(70, 168, 133));
+  height: 100%;
+  div.back {
+    background: linear-gradient(202deg, rgb(45, 108, 183), rgb(70, 168, 133));
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -10;
+  }
   header {
-    @extend %flex-center;
-    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
 
     h1 {
       color: #fff;
-      font: 3rem sans-serif;
-      font-weight: bolder;
+      font-size: 2.25rem;
+      line-height: 42px;
     }
   }
 
   form {
-    @extend %flex-center;
-    input,
-    button {
-      @extend %button;
-      font-size: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 350px;
+    margin: 0 auto;
+
+    input::placeholder {
+      color: #fff;
+      opacity: 0.3;
+    }
+    input:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px #fff;
+    }
+    input[type="text"] {
+      @extend %input;
+      width: 100%;
+      font-size: 1.125rem;
+      line-height: 20px;
+      padding: 7px 10px;
+      margin: 0.15rem;
+      font-family: "Noto Sans TC", sans-serif;
     }
     input[type="number"] {
-      width: 2.5rem;
+      @extend %input;
+      width: 43px;
+      height: 32px;
+      font-size: 0.875rem;
+      line-height: 15px;
       text-align: center;
+      padding: 9px 0;
+      margin: 14px 4.5px 0;
     }
     button {
-      background: rgb(0, 146, 114);
+      @extend %button;
+      width: 64px;
+      height: 32px;
+      background: #fff;
+      opacity: 0.9;
+      color: rgb(96, 96, 96);
+      font-size: 1.125rem;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: 0.01em;
+      margin: 14px 2.4px 0 4.5px;
+      box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.25);
+      &:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 3px #d5973a;
+      }
+    }
+  }
+
+  div.sort {
+    width: 240px;
+    margin: 30px auto 10px;
+
+    button {
+      @extend %button;
+      width: 37px;
+      height: 23px;
+      background: #d5973a;
       color: #fff;
-      cursor: pointer;
+      font-size: 0.875em;
+      line-height: 15px;
+      box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.25);
+      &:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 3px #fff;
+      }
     }
   }
 
@@ -57,48 +153,168 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    height: 59vh;
+    overflow-y: auto;
     div.todo {
-      @extend %button;
       display: flex;
-      align-items: center;
-      justify-content: space-evenly;
-      width: 60vw;
-      background: #fff;
-      transition: all 0.2s ease;
-      p {
-        font-size: 1.5rem;
-        color: #000;
+      align-items: flex-start;
+      justify-content: space-between;
+      width: 350px;
+      padding: 5px 5px 15px;
+
+      div.contentWrap {
+        width: 70%;
+        p {
+          font-size: 1rem;
+          line-height: 15px;
+          color: #fff;
+        }
+        p.todo-text {
+          letter-spacing: 0.09em;
+          padding-bottom: 8px;
+          font-family: "Noto Sans TC", sans-serif;
+        }
+        p.todo-time {
+          color: rgba(255, 255, 255, 0.5);
+        }
       }
-      p.todo-text {
-        width: 50%;
-      }
-      p.todo-time {
-        width: 20%;
-        text-align: end;
-      }
-      button {
-        @extend %button;
-        font-size: 1.5rem;
+
+      button.trash {
+        width: 16px;
+        height: 16px;
+        font-size: 16px;
+        background: transparent;
+        border: none;
+        border-radius: 2px;
         color: #fff;
         cursor: pointer;
-      }
-      button.complete {
-        background: rgb(50, 255, 50);
-      }
-      button.trash {
-        background: red;
-        width: 33.59px;
+        &:focus-visible {
+          outline: none;
+          box-shadow: 0 0 0 3px #d5973a;
+        }
       }
     }
   }
 }
 
+div.complete_svg_wrap {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  svg.circle path {
+    stroke: #fff;
+  }
+  svg.check {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: 1px;
+    top: 2px;
+    path {
+      stroke: transparent;
+      stroke-dasharray: 17px;
+      stroke-dashoffset: 17px;
+    }
+  }
+}
 .done {
-  opacity: 0.5;
-  text-decoration: line-through;
-  text-decoration-thickness: 0.2rem;
+  animation: fade 0.75s ease forwards;
+  svg {
+    &.circle > path {
+      animation: complete_circle 0.5s cubic-bezier(0.27, 0.94, 0.45, 1) forwards;
+    }
+    &.check > path {
+      animation: complete_check 0.5s cubic-bezier(0.27, 0.94, 0.45, 1) 0.25s
+        forwards;
+    }
+  }
+}
+.undone {
+  animation: bright 0.75s ease forwards;
+  svg {
+    &.circle > path {
+      animation: noncomplete_circle 0.5s cubic-bezier(0.27, 0.94, 0.45, 1)
+        forwards;
+    }
+    &.check > path {
+      animation: noncomplete_check 1s cubic-bezier(0.27, 0.94, 0.45, 1) forwards;
+    }
+  }
 }
 
+@keyframes fade {
+  to {
+    opacity: 0.5;
+  }
+}
+@keyframes bright {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes complete_circle {
+  from {
+    stroke-dasharray: 52px;
+    stroke-dashoffset: 0px;
+  }
+  to {
+    stroke-dasharray: 52px;
+    stroke-dashoffset: 52px;
+    opacity: 0.5;
+  }
+}
+@keyframes complete_check {
+  35% {
+    stroke: #fff;
+    stroke-dashoffset: 0px;
+    transform: rotate(-30deg);
+  }
+  65% {
+    transform: rotate(10deg);
+  }
+  100% {
+    stroke: #fff;
+    stroke-dashoffset: 0px;
+    transform: rotate(0deg);
+  }
+}
+@keyframes noncomplete_circle {
+  from {
+    stroke-dasharray: 52px;
+    stroke-dashoffset: 52px;
+    opacity: 0.5;
+  }
+  to {
+    stroke-dasharray: 52px;
+    stroke-dashoffset: 0px;
+    opacity: 1;
+  }
+}
+@keyframes noncomplete_check {
+  from {
+    stroke: #fff;
+    stroke-dasharray: 17px;
+    stroke-dashoffset: 0px;
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    stroke: transparent;
+    stroke-dasharray: 17px;
+    stroke-dashoffset: 17px;
+    transform: rotate(15deg);
+  }
+}
+
+.scaleUp {
+  animation: scaleUp 0.3s forwards;
+}
 @keyframes scaleUp {
   0% {
     transform: scale(0.9);
@@ -112,14 +328,15 @@ body {
 }
 @keyframes scaleDown {
   0% {
-    transform: scale(1);
+    transform: scale(0.9);
   }
   50% {
     transform: scale(1.05);
+    opacity: 0.5;
   }
   100% {
-    transform: scale(0);
-    opacity: 0.5;
+    transform: scale(1);
+    opacity: 0;
   }
 }
 

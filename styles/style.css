@@ -1,16 +1,77 @@
+@font-face {
+  font-family: Gidole;
+  src: url(../fonts/GidoleFont/Gidole-Regular.ttf) format("truetype");
+}
+
 * {
   padding: 0;
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-weight: normal;
+  font-family: "Gidole", Arial, Helvetica, sans-serif;
 }
 
-i {
+::-moz-selection {
+  background-color: #d5973a;
+  color: #fff;
+}
+
+::selection {
+  background-color: #d5973a;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+  background: transparent;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 5px;
+  background: linear-gradient(202deg, #6fc3a6, #5b93d7);
+  border-radius: 10px;
+}
+
+i,
+svg,
+path {
   pointer-events: none;
 }
 
-body header, body form {
+body form button, body div.sort button {
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+body form input[type="text"], body form input[type="number"] {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 9px;
+  color: #fff;
+  background-color: transparent;
+}
+
+body {
+  height: 100%;
+}
+
+body div.back {
+  background: linear-gradient(202deg, #2d6cb7, #46a885);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -10;
+}
+
+body header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -20,45 +81,117 @@ body header, body form {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-body form input,
-body form button, body section div.todo, body section div.todo button {
-  border: none;
-  border-radius: 2.5px;
-  margin: 0.15rem;
-  padding: 0.2rem 0.3rem;
-}
-
-body {
-  background: -webkit-gradient(linear, left top, right top, from(#5482ff), to(#64ff86));
-  background: linear-gradient(90deg, #5482ff, #64ff86);
-}
-
-body header {
-  height: 20vh;
+  height: 10vh;
 }
 
 body header h1 {
   color: #fff;
-  font: 3rem sans-serif;
-  font-weight: bolder;
+  font-size: 2.25rem;
+  line-height: 42px;
 }
 
-body form input,
-body form button {
-  font-size: 1.5rem;
+body form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 350px;
+  margin: 0 auto;
+}
+
+body form input::-webkit-input-placeholder {
+  color: #fff;
+  opacity: 0.3;
+}
+
+body form input:-ms-input-placeholder {
+  color: #fff;
+  opacity: 0.3;
+}
+
+body form input::-ms-input-placeholder {
+  color: #fff;
+  opacity: 0.3;
+}
+
+body form input::placeholder {
+  color: #fff;
+  opacity: 0.3;
+}
+
+body form input:focus-visible {
+  outline: none;
+  -webkit-box-shadow: 0 0 0 3px #fff;
+          box-shadow: 0 0 0 3px #fff;
+}
+
+body form input[type="text"] {
+  width: 100%;
+  font-size: 1.125rem;
+  line-height: 20px;
+  padding: 7px 10px;
+  margin: 0.15rem;
+  font-family: "Noto Sans TC", sans-serif;
 }
 
 body form input[type="number"] {
-  width: 2.5rem;
+  width: 43px;
+  height: 32px;
+  font-size: 0.875rem;
+  line-height: 15px;
   text-align: center;
+  padding: 9px 0;
+  margin: 14px 4.5px 0;
 }
 
 body form button {
-  background: #009272;
+  width: 64px;
+  height: 32px;
+  background: #fff;
+  opacity: 0.9;
+  color: #606060;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.01em;
+  margin: 14px 2.4px 0 4.5px;
+  -webkit-box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.25);
+          box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.25);
+}
+
+body form button:focus-visible {
+  outline: none;
+  -webkit-box-shadow: 0 0 0 3px #d5973a;
+          box-shadow: 0 0 0 3px #d5973a;
+}
+
+body div.sort {
+  width: 240px;
+  margin: 30px auto 10px;
+}
+
+body div.sort button {
+  width: 37px;
+  height: 23px;
+  background: #d5973a;
   color: #fff;
-  cursor: pointer;
+  font-size: 0.875em;
+  line-height: 15px;
+  -webkit-box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.25);
+          box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.25);
+}
+
+body div.sort button:focus-visible {
+  outline: none;
+  -webkit-box-shadow: 0 0 0 3px #fff;
+          box-shadow: 0 0 0 3px #fff;
 }
 
 body section {
@@ -72,57 +205,274 @@ body section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
+  height: 59vh;
+  overflow-y: auto;
 }
 
 body section div.todo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  width: 60vw;
-  background: #fff;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 350px;
+  padding: 5px 5px 15px;
 }
 
-body section div.todo p {
-  font-size: 1.5rem;
-  color: #000;
+body section div.todo div.contentWrap {
+  width: 70%;
 }
 
-body section div.todo p.todo-text {
-  width: 50%;
+body section div.todo div.contentWrap p {
+  font-size: 1rem;
+  line-height: 15px;
+  color: #fff;
 }
 
-body section div.todo p.todo-time {
-  width: 20%;
-  text-align: end;
+body section div.todo div.contentWrap p.todo-text {
+  letter-spacing: 0.09em;
+  padding-bottom: 8px;
+  font-family: "Noto Sans TC", sans-serif;
 }
 
-body section div.todo button {
-  font-size: 1.5rem;
+body section div.todo div.contentWrap p.todo-time {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+body section div.todo button.trash {
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  border-radius: 2px;
   color: #fff;
   cursor: pointer;
 }
 
-body section div.todo button.complete {
-  background: #32ff32;
+body section div.todo button.trash:focus-visible {
+  outline: none;
+  -webkit-box-shadow: 0 0 0 3px #d5973a;
+          box-shadow: 0 0 0 3px #d5973a;
 }
 
-body section div.todo button.trash {
-  background: red;
-  width: 33.59px;
+div.complete_svg_wrap {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+div.complete_svg_wrap svg.circle path {
+  stroke: #fff;
+}
+
+div.complete_svg_wrap svg.check {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  left: 1px;
+  top: 2px;
+}
+
+div.complete_svg_wrap svg.check path {
+  stroke: transparent;
+  stroke-dasharray: 17px;
+  stroke-dashoffset: 17px;
 }
 
 .done {
-  opacity: 0.5;
-  text-decoration: line-through;
-  text-decoration-thickness: 0.2rem;
+  -webkit-animation: fade 0.75s ease forwards;
+          animation: fade 0.75s ease forwards;
+}
+
+.done svg.circle > path {
+  -webkit-animation: complete_circle 0.5s cubic-bezier(0.27, 0.94, 0.45, 1) forwards;
+          animation: complete_circle 0.5s cubic-bezier(0.27, 0.94, 0.45, 1) forwards;
+}
+
+.done svg.check > path {
+  -webkit-animation: complete_check 0.5s cubic-bezier(0.27, 0.94, 0.45, 1) 0.25s forwards;
+          animation: complete_check 0.5s cubic-bezier(0.27, 0.94, 0.45, 1) 0.25s forwards;
+}
+
+.undone {
+  -webkit-animation: bright 0.75s ease forwards;
+          animation: bright 0.75s ease forwards;
+}
+
+.undone svg.circle > path {
+  -webkit-animation: noncomplete_circle 0.5s cubic-bezier(0.27, 0.94, 0.45, 1) forwards;
+          animation: noncomplete_circle 0.5s cubic-bezier(0.27, 0.94, 0.45, 1) forwards;
+}
+
+.undone svg.check > path {
+  -webkit-animation: noncomplete_check 1s cubic-bezier(0.27, 0.94, 0.45, 1) forwards;
+          animation: noncomplete_check 1s cubic-bezier(0.27, 0.94, 0.45, 1) forwards;
+}
+
+@-webkit-keyframes fade {
+  to {
+    opacity: 0.5;
+  }
+}
+
+@keyframes fade {
+  to {
+    opacity: 0.5;
+  }
+}
+
+@-webkit-keyframes bright {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bright {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes complete_circle {
+  from {
+    stroke-dasharray: 52px;
+    stroke-dashoffset: 0px;
+  }
+  to {
+    stroke-dasharray: 52px;
+    stroke-dashoffset: 52px;
+    opacity: 0.5;
+  }
+}
+
+@keyframes complete_circle {
+  from {
+    stroke-dasharray: 52px;
+    stroke-dashoffset: 0px;
+  }
+  to {
+    stroke-dasharray: 52px;
+    stroke-dashoffset: 52px;
+    opacity: 0.5;
+  }
+}
+
+@-webkit-keyframes complete_check {
+  35% {
+    stroke: #fff;
+    stroke-dashoffset: 0px;
+    -webkit-transform: rotate(-30deg);
+            transform: rotate(-30deg);
+  }
+  65% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  100% {
+    stroke: #fff;
+    stroke-dashoffset: 0px;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+
+@keyframes complete_check {
+  35% {
+    stroke: #fff;
+    stroke-dashoffset: 0px;
+    -webkit-transform: rotate(-30deg);
+            transform: rotate(-30deg);
+  }
+  65% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  100% {
+    stroke: #fff;
+    stroke-dashoffset: 0px;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+
+@-webkit-keyframes noncomplete_circle {
+  from {
+    stroke-dasharray: 52px;
+    stroke-dashoffset: 52px;
+    opacity: 0.5;
+  }
+  to {
+    stroke-dasharray: 52px;
+    stroke-dashoffset: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes noncomplete_circle {
+  from {
+    stroke-dasharray: 52px;
+    stroke-dashoffset: 52px;
+    opacity: 0.5;
+  }
+  to {
+    stroke-dasharray: 52px;
+    stroke-dashoffset: 0px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes noncomplete_check {
+  from {
+    stroke: #fff;
+    stroke-dasharray: 17px;
+    stroke-dashoffset: 0px;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    stroke: transparent;
+    stroke-dasharray: 17px;
+    stroke-dashoffset: 17px;
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+}
+
+@keyframes noncomplete_check {
+  from {
+    stroke: #fff;
+    stroke-dasharray: 17px;
+    stroke-dashoffset: 0px;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    stroke: transparent;
+    stroke-dasharray: 17px;
+    stroke-dashoffset: 17px;
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+}
+
+.scaleUp {
+  -webkit-animation: scaleUp 0.3s forwards;
+          animation: scaleUp 0.3s forwards;
 }
 
 @-webkit-keyframes scaleUp {
@@ -157,33 +507,35 @@ body section div.todo button.trash {
 
 @-webkit-keyframes scaleDown {
   0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
   }
   50% {
     -webkit-transform: scale(1.05);
             transform: scale(1.05);
+    opacity: 0.5;
   }
   100% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-    opacity: 0.5;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0;
   }
 }
 
 @keyframes scaleDown {
   0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
   }
   50% {
     -webkit-transform: scale(1.05);
             transform: scale(1.05);
+    opacity: 0.5;
   }
   100% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-    opacity: 0.5;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0;
   }
 }
 
